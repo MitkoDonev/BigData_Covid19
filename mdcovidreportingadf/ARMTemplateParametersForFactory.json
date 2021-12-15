@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "mdcovidreportingadf"
+		},
+		"ls_ablob_mdcovidreportingas_connectionString": {
+			"value": ""
+		},
+		"ls_adls_mdcovidreportingdl_accountKey": {
+			"value": ""
+		},
+		"ls_adls_mdcovidreportingdl_properties_typeProperties_url": {
+			"value": "https://mdcovidreportingdl.dfs.core.windows.net"
+		}
+	}
+}
