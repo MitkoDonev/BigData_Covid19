@@ -614,7 +614,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/tr_ingest_hospital_admissions_data')]",
+			"name": "[concat(parameters('factoryName'), '/tr_ingest_ecdc_data')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -632,9 +632,9 @@
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
-						"frequency": "Day",
-						"interval": 1,
-						"startTime": "2021-12-16T16:15:00",
+						"frequency": "Minute",
+						"interval": 15,
+						"startTime": "2021-12-16T15:15:00",
 						"timeZone": "FLE Standard Time"
 					}
 				}
