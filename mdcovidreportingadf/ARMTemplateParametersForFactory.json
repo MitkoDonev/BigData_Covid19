@@ -13,6 +13,9 @@
 		},
 		"ls_adls_mdcovidreportingdl_properties_typeProperties_url": {
 			"value": "https://mdcovidreportingdl.dfs.core.windows.net"
+		},
+		"tr_ingest_population_data_properties_typeProperties_scope": {
+			"value": "/subscriptions/964df7ca-3ba4-48b6-a695-1ed9db5723f8/resourceGroups/1-087bac7b-playground-sandbox/providers/Microsoft.Storage/storageAccounts/mdcovidreportingsa"
 		}
 	}
 }
