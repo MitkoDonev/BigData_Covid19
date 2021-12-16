@@ -1,5 +1,5 @@
 {
-	"name": "Trigger_On_Create_File",
+	"name": "tr_ingest_population_data",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
