@@ -1,5 +1,5 @@
 {
-	"name": "tr_ingest_hospital_admissions_data",
+	"name": "tr_ingest_ecdc_data",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -8,19 +8,15 @@
 				"pipelineReference": {
 					"referenceName": "pl_ingest_ecdc_data",
 					"type": "PipelineReference"
-				},
-				"parameters": {
-					"sourceRelativeURL": "hospital_admissions.csv",
-					"sinkFileName": "hospital_admissions.csv"
 				}
 			}
 		],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
-				"frequency": "Day",
-				"interval": 1,
-				"startTime": "2021-12-16T16:15:00",
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2021-12-16T15:15:00",
 				"timeZone": "FLE Standard Time"
 			}
 		}
