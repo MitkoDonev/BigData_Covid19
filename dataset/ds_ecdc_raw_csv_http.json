@@ -3,13 +3,7 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_http_ecdc_europa_eus",
-			"type": "LinkedServiceReference",
-			"parameters": {
-				"sourceBaseURL": {
-					"value": "@dataset().baceUrl",
-					"type": "Expression"
-				}
-			}
+			"type": "LinkedServiceReference"
 		},
 		"parameters": {
 			"relativeURL": {
