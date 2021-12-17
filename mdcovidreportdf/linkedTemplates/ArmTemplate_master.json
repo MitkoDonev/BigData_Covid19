@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "mdcovidreportdf"
+		},
+		"ls_ablob_mdcovidreportingas_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_ablob_mdcovidreportingas'"
+		},
+		"ls_adls_mdcovidreportingdl_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls_mdcovidreportingdl'"
+		},
+		"ls_adls_mdcovidreportingdl_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://mdcovidreportdl.dfs.core.windows.net"
+		},
+		"ls_http_ecdc_europa_eus_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "@{linkedService().sourceBaseURL}"
+		},
+		"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "@{linkedService().sourceBaseUrl}"
+		},
+		"tr_ingest_population_data_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/964df7ca-3ba4-48b6-a695-1ed9db5723f8/resourceGroups/1-087bac7b-playground-sandbox/providers/Microsoft.Storage/storageAccounts/mdcovidreportingsa"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "mdcovidreportdf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_ablob_mdcovidreportingas_connectionString": {
+						"value": "[parameters('ls_ablob_mdcovidreportingas_connectionString')]"
+					},
+					"ls_adls_mdcovidreportingdl_accountKey": {
+						"value": "[parameters('ls_adls_mdcovidreportingdl_accountKey')]"
+					},
+					"ls_adls_mdcovidreportingdl_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls_mdcovidreportingdl_properties_typeProperties_url')]"
+					},
+					"ls_http_ecdc_europa_eus_properties_typeProperties_url": {
+						"value": "[parameters('ls_http_ecdc_europa_eus_properties_typeProperties_url')]"
+					},
+					"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
+						"value": "[parameters('ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url')]"
+					},
+					"tr_ingest_population_data_properties_typeProperties_scope": {
+						"value": "[parameters('tr_ingest_population_data_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
