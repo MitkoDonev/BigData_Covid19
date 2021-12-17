@@ -17,9 +17,6 @@
 		"ls_http_ecdc_europa_eus_properties_typeProperties_url": {
 			"value": "@{linkedService().sourceBaseURL}"
 		},
-		"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
-			"value": "@{linkedService().sourceBaseUrl}"
-		},
 		"tr_ingest_population_data_properties_typeProperties_scope": {
 			"value": "/subscriptions/964df7ca-3ba4-48b6-a695-1ed9db5723f8/resourceGroups/1-087bac7b-playground-sandbox/providers/Microsoft.Storage/storageAccounts/mdcovidreportingsa"
 		},
