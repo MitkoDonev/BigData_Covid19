@@ -461,50 +461,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ds_ecdc_raw_csv_http')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_http_ecdc_europa_eus",
-					"type": "LinkedServiceReference",
-					"parameters": {
-						"sourceBaseURL": {
-							"value": "@dataset().baceUrl",
-							"type": "Expression"
-						}
-					}
-				},
-				"parameters": {
-					"relativeURL": {
-						"type": "string"
-					},
-					"baceUrl": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "HttpServerLocation",
-						"relativeUrl": {
-							"value": "@dataset().relativeURL",
-							"type": "Expression"
-						}
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_http_ecdc_europa_eus')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/ds_population_raw_gz')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -705,6 +661,45 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pl_ingest_population_data')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_ecdc_raw_csv_http')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_http_ecdc_europa_eus",
+					"type": "LinkedServiceReference",
+					"parameters": {}
+				},
+				"parameters": {
+					"relativeURL": {
+						"type": "string"
+					},
+					"baceUrl": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation",
+						"relativeUrl": {
+							"value": "@dataset().relativeURL",
+							"type": "Expression"
+						}
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_http_ecdc_europa_eus')]"
 			]
 		}
 	]
