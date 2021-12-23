@@ -11,6 +11,9 @@
 		"ls_adls_mdcovidreportingdl_accountKey": {
 			"value": ""
 		},
+		"ls_db_covid_cluster_accessToken": {
+			"value": ""
+		},
 		"ls_adls_mdcovidreportingdl_properties_typeProperties_url": {
 			"value": "https://mdcovidreportdl.dfs.core.windows.net"
 		},
