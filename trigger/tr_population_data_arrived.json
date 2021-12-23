@@ -1,12 +1,12 @@
 {
-	"name": "tr_ingest_population_data",
+	"name": "tr_population_data_arrived",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pl_ingest_population_data",
+					"referenceName": "pl_execute_population_pipelines",
 					"type": "PipelineReference"
 				}
 			}
@@ -15,7 +15,7 @@
 		"typeProperties": {
 			"blobPathBeginsWith": "/population/blobs/population_by_age.tsv.gz",
 			"ignoreEmptyBlobs": true,
-			"scope": "/subscriptions/964df7ca-3ba4-48b6-a695-1ed9db5723f8/resourceGroups/1-087bac7b-playground-sandbox/providers/Microsoft.Storage/storageAccounts/mdcovidreportingsa",
+			"scope": "/subscriptions/e109dae8-4906-4696-9e2a-348de044f8c0/resourceGroups/mdcovidreportrg/providers/Microsoft.Storage/storageAccounts/mdcovidreportsa",
 			"events": [
 				"Microsoft.Storage.BlobCreated"
 			]
